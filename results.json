@@ -1,0 +1,137 @@
+{
+  "results": {
+    "MLP": {
+      "params": 235146,
+      "hand_total_flops": 469504,
+      "thop_macs": 234752,
+      "thop_flops_x2": 469504,
+      "lat_b1_ms": 0.018770515453070402,
+      "lat_b128_ms": 0.1498960191383958,
+      "test_acc": 0.8755,
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 0.4933088965502652,
+          "val_acc": 0.8584
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.35819772577719255,
+          "val_acc": 0.8702
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.31535211632034993,
+          "val_acc": 0.8806
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.29144948731769216,
+          "val_acc": 0.8822
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.27147537760517815,
+          "val_acc": 0.8842
+        }
+      ]
+    },
+    "CNN": {
+      "params": 20490,
+      "hand_total_flops": 2063488,
+      "thop_macs": 1031744,
+      "thop_flops_x2": 2063488,
+      "lat_b1_ms": 0.1295834663324058,
+      "lat_b128_ms": 8.748416526941583,
+      "test_acc": 0.8917,
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 0.5324366017775102,
+          "val_acc": 0.859
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.34315386528535324,
+          "val_acc": 0.8804
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.30593951694748617,
+          "val_acc": 0.8896
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.27916831589612096,
+          "val_acc": 0.8976
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.26254253301186997,
+          "val_acc": 0.8976
+        }
+      ]
+    },
+    "Attention": {
+      "params": 71818,
+      "hand_total_flops": 2329856,
+      "thop_macs": 591488,
+      "thop_flops_x2": 1182976,
+      "lat_b1_ms": 0.23777098977006972,
+      "lat_b128_ms": 6.024542002705857,
+      "test_acc": 0.865,
+      "history": [
+        {
+          "epoch": 1,
+          "train_loss": 0.7874058979207819,
+          "val_acc": 0.8094
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.475452615256743,
+          "val_acc": 0.8428
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.41690665982419794,
+          "val_acc": 0.859
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.38632415369207207,
+          "val_acc": 0.8692
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.3632846642667597,
+          "val_acc": 0.8682
+        }
+      ]
+    }
+  },
+  "hand": {
+    "MLP": {
+      "example_layer": "Linear 784->256",
+      "example_flops": 401408,
+      "total": 469504
+    },
+    "CNN": {
+      "example_layer": "Conv2d 16->32 @14x14",
+      "example_flops": 1806336,
+      "total": 2063488
+    },
+    "Attention": {
+      "example_layer": "1 encoder layer (seq=16,d=64)",
+      "example_flops": 1114112,
+      "breakdown": {
+        "QKV projections": 393216,
+        "scores QK^T": 32768,
+        "attn x V": 32768,
+        "output projection": 131072,
+        "FFN linear1": 262144,
+        "FFN linear2": 262144
+      },
+      "total": 2329856
+    }
+  }
+}
